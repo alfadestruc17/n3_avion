@@ -367,7 +367,12 @@ public class Avion
      * @return La primera silla económica libre en ventana, o null si no hay
      */
     public Silla darSillaEconomicaLibreEnVentana() {
-    	
+    	for(Silla silla : sillasEconomicas) {
+            if(silla.darUbicacion() == Ubicacion.VENTANA && !silla.sillaAsignada()) {
+                return silla;
+            }
+        }
+        return null;
     }
 
     /**
