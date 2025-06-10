@@ -328,6 +328,17 @@ public class Avion
     {
         return sillasEconomicas;
     }
+    
+    /**
+     * Determina qué clase tiene más sillas ocupadas en la ventana.
+     * @return La clase con más sillas ocupadas en ventana, o null si hay igual cantidad
+     */
+    public Clase darClaseConMasSillasEnVentanaOcupadas() {
+        int ejecutivasVentanaOcupadas = 0;
+        int economicasVentanaOcupadas = 0;
+        
+        
+    }
 
     /**
      * Método para la extensión 1.
