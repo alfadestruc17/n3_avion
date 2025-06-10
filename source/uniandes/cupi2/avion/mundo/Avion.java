@@ -337,6 +337,29 @@ public class Avion
         int ejecutivasVentanaOcupadas = 0;
         int economicasVentanaOcupadas = 0;
         
+        // Contar sillas ejecutivas en ventana ocupadas
+        for(Silla silla : sillasEjecutivas) {
+            if(silla.darUbicacion() == Ubicacion.VENTANA && silla.sillaAsignada()) {
+                ejecutivasVentanaOcupadas++;
+            }
+        }
+        
+        // Contar sillas económicas en ventana ocupadas  
+        for(Silla silla : sillasEconomicas) {
+            if(silla.darUbicacion() == Ubicacion.VENTANA && silla.sillaAsignada()) {
+                economicasVentanaOcupadas++;
+            }
+        }
+        
+        if(ejecutivasVentanaOcupadas > economicasVentanaOcupadas) {
+            return Clase.EJECUTIVA;
+        }
+        else if(economicasVentanaOcupadas > ejecutivasVentanaOcupadas) {
+            return Clase.ECONOMICA; 
+        }
+        else {
+            return null;
+        }
         
     }
 
