@@ -400,7 +400,8 @@ public class Avion
      */
     public String metodo2( )
     {
-        return "Respuesta 2";
+    	 Silla sillaLibre = darSillaEconomicaLibreEnVentana();
+
     }
 
 }
