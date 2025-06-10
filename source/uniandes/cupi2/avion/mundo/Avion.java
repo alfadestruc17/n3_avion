@@ -362,6 +362,13 @@ public class Avion
         }
         
     }
+    /**
+     * Busca una silla económica libre ubicada en la ventana.
+     * @return La primera silla económica libre en ventana, o null si no hay
+     */
+    public Silla darSillaEconomicaLibreEnVentana() {
+    	
+    }
 
     /**
      * Método para la extensión 1.
