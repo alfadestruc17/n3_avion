@@ -328,6 +328,52 @@ public class Avion
     {
         return sillasEconomicas;
     }
+    
+    /**
+     * Determina qué clase tiene más sillas ocupadas en la ventana.
+     * @return La clase con más sillas ocupadas en ventana, o null si hay igual cantidad
+     */
+    public Clase darClaseConMasSillasEnVentanaOcupadas() {
+        int ejecutivasVentanaOcupadas = 0;
+        int economicasVentanaOcupadas = 0;
+        
+        // Contar sillas ejecutivas en ventana ocupadas
+        for(Silla silla : sillasEjecutivas) {
+            if(silla.darUbicacion() == Ubicacion.VENTANA && silla.sillaAsignada()) {
+                ejecutivasVentanaOcupadas++;
+            }
+        }
+        
+        // Contar sillas económicas en ventana ocupadas  
+        for(Silla silla : sillasEconomicas) {
+            if(silla.darUbicacion() == Ubicacion.VENTANA && silla.sillaAsignada()) {
+                economicasVentanaOcupadas++;
+            }
+        }
+        
+        if(ejecutivasVentanaOcupadas > economicasVentanaOcupadas) {
+            return Clase.EJECUTIVA;
+        }
+        else if(economicasVentanaOcupadas > ejecutivasVentanaOcupadas) {
+            return Clase.ECONOMICA; 
+        }
+        else {
+            return null;
+        }
+        
+    }
+    /**
+     * Busca una silla económica libre ubicada en la ventana.
+     * @return La primera silla económica libre en ventana, o null si no hay
+     */
+    public Silla darSillaEconomicaLibreEnVentana() {
+    	for(Silla silla : sillasEconomicas) {
+            if(silla.darUbicacion() == Ubicacion.VENTANA && !silla.sillaAsignada()) {
+                return silla;
+            }
+        }
+        return null;
+    }
 
     /**
      * Método para la extensión 1.
@@ -335,7 +381,17 @@ public class Avion
      */
     public String metodo1( )
     {
-        return "Respuesta 1";
+    	 Clase claseConMas = darClaseConMasSillasEnVentanaOcupadas();
+    	    
+    	 if(claseConMas == Clase.EJECUTIVA) {
+    	        return "Hay más sillas ocupadas ubicadas en la ventana en la clase ejecutiva.";
+    	    }
+    	 else if(claseConMas == Clase.ECONOMICA) {
+    	        return "Hay más sillas ocupadas ubicadas en la ventana en la clase económica.";
+    	    }
+    	    else {
+    	        return "Hay un número igual de sillas ocupadas en la ventana.";
+    	    }
     }
 
     /**
@@ -344,7 +400,13 @@ public class Avion
      */
     public String metodo2( )
     {
-        return "Respuesta 2";
-    }
-
+		Silla silla = darSillaEconomicaLibreEnVentana();
+		if(silla != null) {
+			return "La primera silla económica libre en ventana es la número: " + silla.darNumero();
+		}
+		else {
+			return "No hay sillas económicas libres ubicadas en la ventana.";
+		}
+	}
 }
+
