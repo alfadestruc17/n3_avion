@@ -400,7 +400,13 @@ public class Avion
      */
     public String metodo2( )
     {
-        return "Respuesta 2";
-    }
-
+		Silla silla = darSillaEconomicaLibreEnVentana();
+		if(silla != null) {
+			return "La primera silla económica libre en ventana es la número: " + silla.darNumero();
+		}
+		else {
+			return "No hay sillas económicas libres ubicadas en la ventana.";
+		}
+	}
 }
+
