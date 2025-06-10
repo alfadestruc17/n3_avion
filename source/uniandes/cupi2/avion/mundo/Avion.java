@@ -374,7 +374,12 @@ public class Avion
     	 if(claseConMas == Clase.EJECUTIVA) {
     	        return "Hay más sillas ocupadas ubicadas en la ventana en la clase ejecutiva.";
     	    }
-
+    	 else if(claseConMas == Clase.ECONOMICA) {
+    	        return "Hay más sillas ocupadas ubicadas en la ventana en la clase económica.";
+    	    }
+    	    else {
+    	        return "Hay un número igual de sillas ocupadas en la ventana.";
+    	    }
     }
 
     /**
