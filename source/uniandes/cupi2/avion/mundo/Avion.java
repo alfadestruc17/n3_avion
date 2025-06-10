@@ -369,7 +369,12 @@ public class Avion
      */
     public String metodo1( )
     {
-        return "Respuesta 1";
+    	 Clase claseConMas = darClaseConMasSillasEnVentanaOcupadas();
+    	    
+    	 if(claseConMas == Clase.EJECUTIVA) {
+    	        return "Hay más sillas ocupadas ubicadas en la ventana en la clase ejecutiva.";
+    	    }
+
     }
 
     /**
